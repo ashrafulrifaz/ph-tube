@@ -5,3 +5,7 @@ body{
    width: 90%;
    margin: 0 auto;
 }
+.active{
+   background: #FF1F3D;
+   color: white!important;
+}
