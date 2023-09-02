@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+   <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="stylesheet" href="style/style.css">
+   <title>PH Tube</title>
+</head>
+<body>
+   
+   <section class="my-container py-10">
+      <div class="text-center">
+         <span class="text-md font-semibold bg-rose-500 text-white rounded-md py-2 px-5">QUESTIONS</span>
+      </div>
+      <div class="py-8">
+         <div class="border border-gray-300 rounded-md p-4">
+            <h3 class="py-1.5 text-md"><span class="font-semibold">QUESTION 1:</span> Discuss the scope of var, let, and const</h3>
+            <p class="pt-4"><span class="font-semibold">ANSWER: </span>We can compare scope to room. We can call the whole house global scope and each room of the house can be called block or functional scope. JavaScript has 3 variables var, let and const. Var is the global scope. We can access the value declared with var from anywhere in the code. Even from inside of a function. Beside, Let and Const is block scope. If we declared a value using let outside of a function or block scope, we can access it inside a function or block scope. But we can't redeclared or change a global let variable inside a function or block Scope. As well as Const is a block scope. We can't access a const variable inside or outside of a block scope.</p>
+         </div>
+         <div class="border border-gray-300 rounded-md p-4 mt-5">
+            <h3 class="py-1.5 text-md"><span class="font-semibold">QUESTION 2:</span> Tell us the use cases of null and undefined</h3>
+            <p class="pt-4"><span class="font-semibold">ANSWER: </span>We use null to check the absence of a value. Also for represent an empty value and represent a missing or unknown value.
+            <br>
+            Beside we use undefined to represent the unintentional absence or missing of a value because if we declare a variable but do not assign a value, the variable will be undefined.
+            </p>
+         </div>
+         <div class="border border-gray-300 rounded-md p-4 mt-5">
+            <h3 class="py-1.5 text-md"><span class="font-semibold">QUESTION 3:</span> What do you mean by REST API?</h3>
+            <p class="pt-4"><span class="font-semibold">ANSWER: </span>An API, or application programming interface, is a set of rules that define how applications or devices can connect to and communicate with each other. A REST API is an API that conforms to the design principles of the REST, or representational state transfer architectural style. For this reason, REST APIs are sometimes referred to RESTful APIs.REST APIs communicate via HTTP requests to perform standard database functions like creating, reading, updating, and deleting records. For example, a REST API would use a GET request to retrieve a record, a POST request to create one, a PUT request to update a record, and a DELETE request to delete one.
+            </p>
+         </div>
+      </div>
+      <div class="text-center">
+         <button type="button" class="text-sm py-2 px-5 rounded bg-[#FF1F3D] text-white" id="back-btn">BACK TO HOME</button>
+      </div>
+   </section>
+
+   <script>      
+   document.getElementById('back-btn').addEventListener('click', function(){
+      window.location.href = 'index.html'
+   })
+   </script>
+</body>
+</html>

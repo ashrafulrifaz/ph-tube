@@ -7,7 +7,7 @@ let loadData = async () => {
 
    tabItem.forEach(item => {
       let btn = document.createElement('div')
-      btn.innerHTML = `<button onclick="loadVideos('${item.category_id}')" class="text-sm py-2 px-5 rounded bg-[#25252533] font-medium text-[#252525]">${item.category}</button>`;
+      btn.innerHTML = `<button onclick="loadVideos('${item.category_id}')" class="text-sm py-1.5 md:py-2 px-3 lg:px-5 rounded bg-[#25252533] font-medium text-[#252525]">${item.category}</button>`;
       tabContainer.appendChild(btn)
    })
    showPosts()
@@ -24,6 +24,7 @@ const loadVideos = async (category_id=1000)=>{
    showPosts(posts);
 }
 let showPosts = (posts) => {
+   shortData.style = 'color: #000; background-color: #25252533'
 
    let emptyContainer = document.getElementById('empty-posts-container')
    if(posts.length === 0){
@@ -36,7 +37,6 @@ let showPosts = (posts) => {
 
    posts.forEach(post => {
       let card = document.createElement('div')
-      // console.log(post);
       card.innerHTML = `
          <div class="relative">
             <img src="${post?.thumbnail}" class="rounded w-full h-44">
@@ -47,13 +47,14 @@ let showPosts = (posts) => {
          <div class="flex pt-5 gap-2">
             <img src="${post.authors[0]?.profile_picture}" class="w-10 h-10 rounded-full">
             <div>
-               <h6 class="text-[#171717] text-[15px] font-semibold leading-normal">Building a Winning UX Strategy Using the Kano Model</h6>
+               <h6 class="text-[#171717] text-md font-semibold leading-normal">${post.title}</h6>
                <p class="items-center my-1.5 text-sm text-[#171717B2] flex gap-1.5">${post.authors[0]?.profile_name} <span><img src="${post.authors[0]?.verified ? 'img/fi_10629607.png' : ''}"></span></p>
                <p class="text-sm text-[#171717B2]">${post.others.views}</p>
             </div>
          </div>
       `
-      postContainer.appendChild(card)      
+      postContainer.appendChild(card)
+      
 
       let timeDiv = card.childNodes[1].childNodes[3];
       if(post.others.posted_date !== "") {
@@ -74,11 +75,17 @@ function getDate(date){
    return postedDate
 }
 
-function shortData(){
+let shortData = document.getElementById('short-data')
+shortData.addEventListener('click', function(){
    allPosts.sort((a, b) =>{
       let firstNum = a.others.views.split("K")[0]
       let secondNum = b.others.views.split("K")[0]
       return secondNum - firstNum
    });
    showPosts(allPosts);
-}
+   shortData.style = `color: #ffffff; background-color: #FF1F3D`
+})
+
+document.getElementById('btn-blog').addEventListener('click', function(){
+   window.location.href = 'blog.html'
+})
